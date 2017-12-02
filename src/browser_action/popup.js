@@ -7,6 +7,11 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 		// return tmp.indexOf("head");
 		return tmp.textContent || tmp.innerText || "";
 	}
+	
+	var parsedText = strip(request.source);
+	message.innerText = parsedText;
+	// To-Do: Strip inline CSS
+	
 	function getTone(text) {
 		var ToneAnalyzerV3 = require('https://gateway.watsonplatform.net/tone-analyzer/api');
 		var tone_analyzer = new ToneAnalyzerV3({
@@ -16,13 +21,20 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 		});
 		var params = {
 			// Get the text from the JSON file.
-			text: require('tone.json').text,
-			tones: 'emotion'
+			text: text, //require('tone.json').text,
+			tones: ['disgust', 'fear', 'joy', 'sadness', 'anger']
+		};
+		
+		tone_analyzer.tone(params, function(error, response) {
+			if (error)
+				console.log("Error found at: ", error);
+			else
+				console.log("JSON.stringify(response, null, 2));
 		}
 	}
-	var parsedText = strip(request.source);
-	message.innerText = parsedText;
-	// To-Do: Strip inline CSS
+	
+	var parsedTone = getTone(parsedText);
+	tone_answer.innerText = parsedTone;
   }
 });
 
