@@ -2,7 +2,7 @@
 <style type="text/css">
 	#mainPopup {
 		padding: 10px;
-		height: 100px;
+		height: 120px;
 		width: 300px;
 		font-family: Helvetica, Ubuntu, Arial, sans-serif;
 	}
@@ -9174,17 +9174,19 @@
 </head>
 <body>
 	<nav>
-		<div class = "nav-wrapper">
+		<div class = "nav-wrapper deep-purple darken-1">
 			<a href="#" class = "brand-logo">Meloread</a>
 			<ul id="nav-mobile" class = "right hide-on-med-and-down">
 			</ul>
 		</div>
 	</nav>
-	<div id="mainPopup">
-		<div id='no_tone'>Tone loading...</div>
+	<div id="mainPopup" class="row">
+		<blockquote><h4><div id='no_tone'>Tone loading...</div></h4></blockquote>
 		<div id='tone_answer'/>
 		<div id='message'/>
 		<!-- input id = "click" type = "button" value = "Play song!"-->
-		<button id="click" class="waves-effect waves-light btn">Play song!</button>
+		<div class="center-align">
+			<button id="click" class="waves-effect waves-light btn purple">Play song!</button>
+		</div>
 	</div>
 </body>

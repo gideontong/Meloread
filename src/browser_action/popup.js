@@ -60,7 +60,8 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 			// DO SOMETHING WHEN THERE IS NO TONE
 			no_tone.innerText = "No tone.";
 		} else {
-			no_tone.innerText = myDocTone;
+			var wow = myDocTone.charAt(0).toUpperCase() + myDocTone.slice(1);
+			no_tone.innerText = wow;
 		}
 	}
 
