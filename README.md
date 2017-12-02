@@ -1,6 +1,4 @@
-# MoodTextPlayer
-
-## About
+# Meloread
 
 A Chrome extension that plays a song based on the mood of the currently browsed webpage. It scrapes the currently browsed webpage for the text of the article and/or document (ex. Google Docs) and parses it, transmitting it to IBM Watson Tone Analysis in order to determine the tone/mood of the current reading. It then offers the user an option to play ambient music that is related to the mood of the song.
 
