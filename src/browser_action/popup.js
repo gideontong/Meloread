@@ -6,8 +6,9 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 		tmp.innerHTML = html;
 		return tmp.textContent || tmp.innerText || "";
 	}
-	parsedText = strip(request.source);
-	
+	var parsedText = strip(request.source);
+	var startOfHead = parsedText.indexOf("<head>");
+	ree.innerText = startOfHead;
   }
 });
 
