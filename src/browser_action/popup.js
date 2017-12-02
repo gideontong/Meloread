@@ -4,11 +4,12 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	function strip(html) {
 		var tmp = document.createElement("DIV");
 		tmp.innerHTML = html;
+		ree.innerText = temp.indexOf("<head>");
 		return tmp.textContent || tmp.innerText || "";
 	}
 	var parsedText = strip(request.source);
 	var startOfHead = parsedText.indexOf("<head>");
-	ree.innerText = startOfHead;
+	// ree.innerText = startOfHead;
   }
 });
 
