@@ -1,6 +1,13 @@
 chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.action == "getSource") {
-    //message.innerText = request.source;
+    // message.innerText = request.source;
+	function strip(html) {
+		var tmp = document.createElement("DIV");
+		tmp.innerHTML = html;
+		return tmp.textContent || tmp.innerText || "";
+	}
+	parsedText = strip(request.source);
+	
   }
 });
 
