@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	}
 
 	var parsedText = strip(request.source);
-	//message.innerText = parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ");
+	message.innerText = parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ");
 	// To-Do: Strip inline CSS
 
 	//* THIS DOESN'T WORK. I DON'T KNOW WHY, BUT IT ALSO BREAKS HTML.
@@ -60,7 +60,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	}
 
 	function getWatson(parsedText){
-		$.ajax("https://@gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21", {
+		$.ajax("https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21", {
 			"data": JSON.stringify({"text": parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ")}),
 			"type": "post",
 			"processData": false,
