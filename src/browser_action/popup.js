@@ -4,12 +4,20 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	function strip(html) {
 		var tmp = document.createElement("DIV");
 		tmp.innerHTML = html;
-		ree.innerText = temp.indexOf("<head>");
+		// return tmp.indexOf("head");
 		return tmp.textContent || tmp.innerText || "";
 	}
+	function getTone(text) {
+		var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+		var tone_analyzer = new ToneAnalyzerV3({
+		 username: '',
+		 password: '',
+		 version_date: '{version}'
+		});
+	}
 	var parsedText = strip(request.source);
-	var startOfHead = parsedText.indexOf("<head>");
-	// ree.innerText = startOfHead;
+	message.innerText = parsedText;
+	// To-Do: Strip inline CSS
   }
 });
 
