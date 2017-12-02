@@ -7,13 +7,13 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 		// return tmp.indexOf("head");
 		return tmp.textContent || tmp.innerText || "";
 	}
-	
+
 	var parsedText = strip(request.source);
 	//message.innerText = parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ");
 	// To-Do: Strip inline CSS
-	
+
 	//* THIS DOESN'T WORK. I DON'T KNOW WHY, BUT IT ALSO BREAKS HTML.
-	 
+
 	/* function getTone(text) {
 		var ToneAnalyzerV3 = require('https://gateway.watsonplatform.net/tone-analyzer/api');
 		var tone_analyzer = new ToneAnalyzerV3({
@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 			text: text, //require('tone.json').text,
 			tones: ['disgust', 'fear', 'joy', 'sadness', 'anger']
 		};
-		
+
 		tone_analyzer.tone(params, function(error, response) {
 			if (error).
 				console.log("Error found at: ", error);
@@ -50,7 +50,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 				}
 			}
 		}
-		
+
 		if (!myDocTone) {
 			// DO SOMETHING WHEN THERE IS NO TONE
 			no_tone.innerText = "No tone.";
@@ -58,7 +58,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 			no_tone.innerText = myDocTone;
 		}
 	}
-	
+
 	function getWatson(parsedText){
 		$.ajax("https://@gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21", {
 			"data": JSON.stringify({"text": parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ")}),
@@ -71,15 +71,15 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 			}
 		})
 	}
-	
+
 	mydata = getWatson(parsedText);
-	
+
 	/*
 	var parsedTone = getTone(parsedText);
 	tone_answer.innerText = parsedTone;
 	*/
-	
-	
+
+
   }
 });
 
