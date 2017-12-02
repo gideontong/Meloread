@@ -8,12 +8,17 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 		return tmp.textContent || tmp.innerText || "";
 	}
 	function getTone(text) {
-		var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+		var ToneAnalyzerV3 = require('https://gateway.watsonplatform.net/tone-analyzer/api');
 		var tone_analyzer = new ToneAnalyzerV3({
 		 username: '',
 		 password: '',
-		 version_date: '{version}'
+		 version_date: '2017-09-21'
 		});
+		var params = {
+			// Get the text from the JSON file.
+			text: require('tone.json').text,
+			tones: 'emotion'
+		}
 	}
 	var parsedText = strip(request.source);
 	message.innerText = parsedText;
