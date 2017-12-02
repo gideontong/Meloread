@@ -27,11 +27,7 @@
       ],
       "js": [
         "src/inject/inject.js"
-      ],
-	  "css": [
-		"/css/materialize.css",
-		"/css/animate.css"
-	  ]
+      ]
     }
   ]
 }

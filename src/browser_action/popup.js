@@ -1,3 +1,5 @@
+var superTone;
+
 chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.action == "getSource") {
     // message.innerText = request.source;
@@ -9,7 +11,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	}
 
 	var parsedText = strip(request.source);
-	message.innerText = parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ");
+	// message.innerText = parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ");
 	// To-Do: Strip inline CSS
 
 	//* THIS DOESN'T WORK. I DON'T KNOW WHY, BUT IT ALSO BREAKS HTML.
@@ -34,6 +36,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 				console.log(JSON.stringify(response, null, 2));
 		})
 	} */
+	
 	function processTone(mydata){
 		tonescare = ["disgust", "anger", "fear", "joy", "sadness"];
 		var myDocTone;
@@ -47,6 +50,8 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 				if (tone["score"] > myDocToneScore) {
 					myDocToneScore = tone["score"];
 					myDocTone = tone["tone_id"];
+					superTone = myDocTone;
+					console.log(superTone);
 				}
 			}
 		}
@@ -78,7 +83,27 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	var parsedTone = getTone(parsedText);
 	tone_answer.innerText = parsedTone;
 	*/
-
+	
+	console.log(superTone + "hi");
+	
+	// $('#click').bind('click', playSong());
+	$('#click').bind('click', function() {
+		if(true) {
+			$.when(getWatson(parsedText)).then(playSong());
+		}
+		else {
+			console.log("?");
+		}
+	});
+	
+	function playSong() {
+		var i = Math.floor(Math.random()*3) + 1;
+		//var tone = getWatson(parsedText);
+		var audio = new Audio("/songs/" + superTone + i + ".mp3");
+		console.log(superTone);
+		audio.play();
+		//message.innerText("/songs/" + superTone + i + ".mp3");
+	}
 
   }
 });
