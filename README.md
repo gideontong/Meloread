@@ -4,6 +4,20 @@ A Chrome extension that plays a song based on the mood of the currently browsed 
 
 Created by Gideon Tong and Jane Zhang at Hackathon by the Sea from December 1st, 2017 to December 2nd, 2017 in a 19-hour time period.
 
-## Usage
+## Download
 
-Clone the repository, then import the root directory in as an unpackaged extension into Google Chrome with developer mode enabled. To compile, follow normal steps for compiling a Chrome extension.
+You can download the extension from the [Google Chrome Web Store](https://chrome.google.com/webstore/detail/meloread/cmbecjhbnopocdcmekllaggbigkionmp).
+
+## Beta Releases
+
+We are now supporting beta releases! To test the beta releases, there are several prerequisites:
+
+1. using a computer (Firefox Mobile is currently unsupported) on *nix, Windows, or macOS
+2. Google Chrome
+3. IBM Watson API key
+
+Once you have these prerequisites, clone the repository and add the IBM Watson API key, then import the root directory in as an unpackaged extension into Google Chrome with developer mode enabled. To compile, follow normal steps for compiling a Chrome extension.
+
+## Contribution
+
+Contribution is greatly appreciated! You can visit our website or the GitHub issue tracker to see a list of things that need to be done, or visit our website to simply provide feedback. Thank you so much for your support!
