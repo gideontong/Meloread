@@ -66,7 +66,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 	}
 
 	function getWatson(parsedText){
-		$.ajax("https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21", {
+		$.ajax("", {
 			"data": JSON.stringify({"text": parsedText.replace(/(\r\n|\n|\r)/gm," ").replace(/['"]+/g," ")}),
 			"type": "post",
 			"processData": false,
@@ -125,3 +125,16 @@ function onWindowLoad() {
 }
 
 window.onload = onWindowLoad;
+
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        (function () {
+            var ln = links[i];
+            var location = ln.href;
+            ln.onclick = function () {
+                chrome.tabs.create({active: true, url: location});
+            };
+        })();
+    }
+});
