@@ -1,22 +1,20 @@
 # Meloread
 
-A Chrome extension that plays a song based on the mood of the currently browsed webpage. It scrapes the currently browsed webpage for the text of the article and/or document (ex. Google Docs) and parses it, transmitting it to IBM Watson Tone Analysis in order to determine the tone/mood of the current reading. It then offers the user an option to play ambient music that is related to the mood of the song.
+Meloread helps you pay attention to what you are reading by playing music based on the mood of the webpage you are currently browsing on. The user can choose between different options of ambient music.
 
-Created by Gideon Tong and Jane Zhang at Hackathon by the Sea from December 1st, 2017 to December 2nd, 2017 in a 19-hour time period.
+It scrapes the currently browsed webpage for the text of the article and/or document (ex. Google Docs) and parses it, transmitting it to IBM Watson Tone Analysis in order to determine the tone/mood of the current reading. It then offers the user an option to play ambient music that is related to the mood of the song.
+
+Created by [Gideon Tong](https://github.com/gideontong) and [Jane Zhang](https://github.com/jjanezhang) at Hackathon by the Sea on December 1st, 2017.
 
 ## Download
 
 You can download the extension from the [Google Chrome Web Store](https://chrome.google.com/webstore/detail/meloread/cmbecjhbnopocdcmekllaggbigkionmp).
 
-## Beta Releases
+## Compiling
 
-We are now supporting beta releases! To test the beta releases, there are several prerequisites:
+To run this Chrome extension yourself without installing it from the Google Chrome Web Store, you can clone the repository onto your own computer and obtain an IBM Watson API key.
 
-1. using a computer (Firefox Mobile is currently unsupported) on *nix, Windows, or macOS
-2. Google Chrome
-3. IBM Watson API key
-
-Once you have these prerequisites, clone the repository and add the IBM Watson API key, then import the root directory in as an unpackaged extension into Google Chrome with developer mode enabled. To compile, follow normal steps for compiling a Chrome extension.
+Replace `api=` with your own API key, and then package the extension into a ZIP file and import into Chrome with Developer mode enabled.
 
 ## Contribution
 
