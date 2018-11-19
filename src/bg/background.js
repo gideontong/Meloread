@@ -1,11 +1,4 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
-
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
-
-
-//example of using a message handler from the inject scripts
+// This causes the Chrome extension to add a listener for the button to read the Chrome page.
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
   	chrome.pageAction.show(sender.tab.id);
